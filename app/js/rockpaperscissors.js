@@ -23,26 +23,20 @@ function randomPlay() {
 
 function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
-    var move;
+    var move = null;
+    var userMove;
     // If a `move` has a value, your expression should evaluate to that value.
-    if (move != null){
-    	var userMove = move;
-    } else {
-    	var userMove = getInput();
-    }
+    (move !== null)? userMove = move : userMove = getInput();
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
     return userMove;
 }
 
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
-    var move;
+    var move = null;
+    var compsMove;
     // If a `move` has a value, your expression should evaluate to that value.
-    if (move != null){
-    	var compsMove = move;
-    } else {
-    	var compsMove = randomPlay();
-    }
+	(move !== null)? compsMove = move : compsMove = getInput();
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
     return compsMove;
 }
@@ -50,9 +44,21 @@ function getComputerMove(move) {
 function getWinner(playerMove,computerMove) {
     var winner;
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-    // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-    // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    /* YOUR CODE HERE */
+    if (userMove == "rock" && compsMove == "paper"){
+    	winner = "computer";
+    }else if (userMove == "rock" && compsMove == "scissors"){
+    	winner = "player";
+    }else if (userMove == compsMove){
+    	winner = "tie";
+    }else if (userMove == "paper" && compsMove == "scissors"){
+    	winner = "computer";
+    }else if (userMove == "paper" && compsMove == "rock"){
+    	winner = "player";
+    }else if (userMove == "scissors" && compsMove == "rock"){
+    	winner = "computer";
+    }else if (userMove == "scissors" && compsMove == "paper"){
+    	winner = "player";
+    }
     return winner;
 }
 
